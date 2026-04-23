@@ -161,7 +161,7 @@
 <div class="card active" id="page-start">
   <div class="section-tag">Mid-Term Exam</div>
   <h1>Chinese Language Exam</h1>
-  <p>This exam covers <strong>Greetings, School Life,</strong> and <strong>Basic Verbs</strong>.</p>
+  <p>This exam covers <strong>Chapter 1 to Chapter 4</strong> 
   <div class="welcome-meta">
     <div class="meta-pill">⏱ Time Limit<span>60 Minutes</span></div>
     <div class="meta-pill">📋 Sections<span>5</span></div>
