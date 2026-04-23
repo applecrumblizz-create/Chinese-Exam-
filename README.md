@@ -79,7 +79,6 @@
   .option-btn:hover { border-color: var(--accent); background: #fff8f2; }
   .option-btn.selected { border-color: var(--primary); background: #f0f5ff; font-weight: 600; }
 
-  /* Tone section */
   .tone-big { font-family: 'Noto Serif SC', serif; font-size: 4rem; text-align: center; margin: 16px 0; color: var(--primary); }
   .tone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0; }
   .tone-btn { padding: 16px 8px; border: 2px solid var(--border); border-radius: 10px; background: white; cursor: pointer; text-align: center; font-family: 'Noto Serif SC', serif; font-size: 1.3rem; color: var(--primary); transition: all 0.2s; }
@@ -121,7 +120,7 @@
   .grammar-prompt { font-size: 0.9rem; color: var(--muted); margin-bottom: 10px; }
   .grammar-prompt strong { color: var(--text); }
 
-  #results { text-align: center; }
+  #page-results { text-align: center; }
   .score-circle { width: 140px; height: 140px; border-radius: 50%; border: 6px solid var(--success); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; font-weight: 700; color: var(--success); margin: 24px auto; font-family: 'Noto Serif SC', serif; background: #f0faf5; }
   .score-circle.mid { border-color: var(--accent); color: var(--accent); background: #fff8f0; }
   .score-circle.low { border-color: var(--danger); color: var(--danger); background: #fdf0ef; }
@@ -135,13 +134,13 @@
   .feedback.ok { background: #edfaf4; color: var(--success); }
   .feedback.err { background: #fdf0ef; color: var(--danger); }
 
-  /* Review table in results */
   .review-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; text-align: left; }
   .review-table th { background: #f0ece4; padding: 8px 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
   .review-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
   .review-table tr:last-child td { border-bottom: none; }
   .tag-correct { color: var(--success); font-weight: 700; }
   .tag-wrong { color: var(--danger); font-weight: 700; }
+  .total-row { font-size: 1rem; font-weight: 700; color: var(--primary); padding: 10px 0 4px; }
 </style>
 </head>
 <body>
@@ -211,10 +210,10 @@
   <p>What is the meaning of this word?</p>
   <div class="vocab-big">老师</div>
   <div class="option-grid" id="og-s1q1">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q1',false,'老师','Student')">A. Student</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q1',true,'老师','Teacher')">B. Teacher</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q1',false,'老师','School')">C. School</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q1',false,'老师','Person')">D. Person</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q1','s1',false,'老师','Student')">A. Student</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q1','s1',true,'老师','Teacher')">B. Teacher</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q1','s1',false,'老师','School')">C. School</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q1','s1',false,'老师','Person')">D. Person</button>
   </div>
   <button class="btn" onclick="nextPage('s1q2')">Next →</button>
 </div>
@@ -225,10 +224,10 @@
   <h2>Character Recognition</h2>
   <p>Which word means <strong>"Tomorrow"</strong>?</p>
   <div class="option-grid" id="og-s1q2">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q2',true,'明天 (Tomorrow)','明天')">A. 明天</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q2',false,'明天 (Tomorrow)','早上')">B. 早上</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q2',false,'明天 (Tomorrow)','再见')">C. 再见</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q2',false,'明天 (Tomorrow)','上课')">D. 上课</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q2','s1',true,'明天 (Tomorrow)','明天')">A. 明天</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q2','s1',false,'明天 (Tomorrow)','早上')">B. 早上</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q2','s1',false,'明天 (Tomorrow)','再见')">C. 再见</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q2','s1',false,'明天 (Tomorrow)','上课')">D. 上课</button>
   </div>
   <button class="btn" onclick="nextPage('s1q3')">Next →</button>
 </div>
@@ -239,10 +238,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>对不起</strong> mean?</p>
   <div class="option-grid" id="og-s1q3">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q3',false,'对不起','You\'re welcome')">A. You're welcome</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q3',false,'对不起','Goodbye')">B. Goodbye</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q3',true,'对不起','Sorry / Excuse me')">C. Sorry / Excuse me</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q3',false,'对不起','Good morning')">D. Good morning</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q3','s1',false,'对不起','You\'re welcome')">A. You're welcome</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q3','s1',false,'对不起','Goodbye')">B. Goodbye</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q3','s1',true,'对不起','Sorry / Excuse me')">C. Sorry / Excuse me</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q3','s1',false,'对不起','Good morning')">D. Good morning</button>
   </div>
   <button class="btn" onclick="nextPage('s1q4')">Next →</button>
 </div>
@@ -253,10 +252,10 @@
   <h2>Character Recognition</h2>
   <p>Which character means <strong>"Big"</strong>?</p>
   <div class="option-grid" id="og-s1q4">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q4',false,'大 (Big)','问')">A. 问</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q4',false,'大 (Big)','去')">B. 去</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q4',true,'大 (Big)','大')">C. 大</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q4',false,'大 (Big)','忙')">D. 忙</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q4','s1',false,'大 (Big)','问')">A. 问</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q4','s1',false,'大 (Big)','去')">B. 去</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q4','s1',true,'大 (Big)','大')">C. 大</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q4','s1',false,'大 (Big)','忙')">D. 忙</button>
   </div>
   <button class="btn" onclick="nextPage('s1q5')">Next →</button>
 </div>
@@ -267,10 +266,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>你好</strong> mean?</p>
   <div class="option-grid" id="og-s1q5">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q5',false,'你好','Goodbye')">A. Goodbye</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q5',true,'你好','Hello')">B. Hello</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q5',false,'你好','Thank you')">C. Thank you</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q5',false,'你好','Good morning')">D. Good morning</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q5','s1',false,'你好','Goodbye')">A. Goodbye</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q5','s1',true,'你好','Hello')">B. Hello</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q5','s1',false,'你好','Thank you')">C. Thank you</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q5','s1',false,'你好','Good morning')">D. Good morning</button>
   </div>
   <button class="btn" onclick="nextPage('s1q6')">Next →</button>
 </div>
@@ -281,10 +280,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>学校</strong> mean?</p>
   <div class="option-grid" id="og-s1q6">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q6',false,'学校','Classroom')">A. Classroom</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q6',false,'学校','Teacher')">B. Teacher</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q6',true,'学校','School')">C. School</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q6',false,'学校','Library')">D. Library</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q6','s1',false,'学校','Classroom')">A. Classroom</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q6','s1',false,'学校','Teacher')">B. Teacher</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q6','s1',true,'学校','School')">C. School</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q6','s1',false,'学校','Library')">D. Library</button>
   </div>
   <button class="btn" onclick="nextPage('s1q7')">Next →</button>
 </div>
@@ -295,10 +294,10 @@
   <h2>Character Recognition</h2>
   <p>Which character means <strong>"You"</strong>?</p>
   <div class="option-grid" id="og-s1q7">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q7',false,'你 (You)','我')">A. 我</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q7',true,'你 (You)','你')">B. 你</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q7',false,'你 (You)','他')">C. 他</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q7',false,'你 (You)','她')">D. 她</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q7','s1',false,'你 (You)','我')">A. 我</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q7','s1',true,'你 (You)','你')">B. 你</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q7','s1',false,'你 (You)','他')">C. 他</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q7','s1',false,'你 (You)','她')">D. 她</button>
   </div>
   <button class="btn" onclick="nextPage('s1q8')">Next →</button>
 </div>
@@ -309,10 +308,10 @@
   <h2>Character Recognition</h2>
   <p>Which character means <strong>"I / Me"</strong>?</p>
   <div class="option-grid" id="og-s1q8">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q8',true,'我 (I/Me)','我')">A. 我</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q8',false,'我 (I/Me)','你')">B. 你</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q8',false,'我 (I/Me)','大')">C. 大</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q8',false,'我 (I/Me)','问')">D. 问</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q8','s1',true,'我 (I/Me)','我')">A. 我</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q8','s1',false,'我 (I/Me)','你')">B. 你</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q8','s1',false,'我 (I/Me)','大')">C. 大</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q8','s1',false,'我 (I/Me)','问')">D. 问</button>
   </div>
   <button class="btn" onclick="nextPage('s1q9')">Next →</button>
 </div>
@@ -323,10 +322,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>早上</strong> mean?</p>
   <div class="option-grid" id="og-s1q9">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q9',false,'早上','Afternoon')">A. Afternoon</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q9',true,'早上','Morning')">B. Morning</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q9',false,'早上','Evening')">C. Evening</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q9',false,'早上','Night')">D. Night</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q9','s1',false,'早上','Afternoon')">A. Afternoon</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q9','s1',true,'早上','Morning')">B. Morning</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q9','s1',false,'早上','Evening')">C. Evening</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q9','s1',false,'早上','Night')">D. Night</button>
   </div>
   <button class="btn" onclick="nextPage('s1q10')">Next →</button>
 </div>
@@ -337,10 +336,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>多</strong> mean?</p>
   <div class="option-grid" id="og-s1q10">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q10',false,'多','Few / Little')">A. Few / Little</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q10',true,'多','Many / Much')">B. Many / Much</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q10',false,'多','Big')">C. Big</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q10',false,'多','Small')">D. Small</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q10','s1',false,'多','Few / Little')">A. Few / Little</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q10','s1',true,'多','Many / Much')">B. Many / Much</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q10','s1',false,'多','Big')">C. Big</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q10','s1',false,'多','Small')">D. Small</button>
   </div>
   <button class="btn" onclick="nextPage('s1q11')">Next →</button>
 </div>
@@ -351,10 +350,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>谢谢</strong> mean?</p>
   <div class="option-grid" id="og-s1q11">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q11',false,'谢谢','Sorry')">A. Sorry</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q11',false,'谢谢','Goodbye')">B. Goodbye</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q11',true,'谢谢','Thank you')">C. Thank you</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q11',false,'谢谢','Hello')">D. Hello</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q11','s1',false,'谢谢','Sorry')">A. Sorry</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q11','s1',false,'谢谢','Goodbye')">B. Goodbye</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q11','s1',true,'谢谢','Thank you')">C. Thank you</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q11','s1',false,'谢谢','Hello')">D. Hello</button>
   </div>
   <button class="btn" onclick="nextPage('s1q12')">Next →</button>
 </div>
@@ -365,10 +364,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>再见</strong> mean?</p>
   <div class="option-grid" id="og-s1q12">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q12',false,'再见','Hello')">A. Hello</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q12',true,'再见','Goodbye')">B. Goodbye</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q12',false,'再见','See you tomorrow')">C. See you tomorrow</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q12',false,'再见','Good morning')">D. Good morning</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q12','s1',false,'再见','Hello')">A. Hello</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q12','s1',true,'再见','Goodbye')">B. Goodbye</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q12','s1',false,'再见','See you tomorrow')">C. See you tomorrow</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q12','s1',false,'再见','Good morning')">D. Good morning</button>
   </div>
   <button class="btn" onclick="nextPage('s1q13')">Next →</button>
 </div>
@@ -379,10 +378,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>去</strong> mean?</p>
   <div class="option-grid" id="og-s1q13">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q13',false,'去','To come')">A. To come</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q13',false,'去','To ask')">B. To ask</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q13',true,'去','To go')">C. To go</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q13',false,'去','To see')">D. To see</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q13','s1',false,'去','To come')">A. To come</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q13','s1',false,'去','To ask')">B. To ask</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q13','s1',true,'去','To go')">C. To go</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q13','s1',false,'去','To see')">D. To see</button>
   </div>
   <button class="btn" onclick="nextPage('s1q14')">Next →</button>
 </div>
@@ -393,10 +392,10 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>上课</strong> mean?</p>
   <div class="option-grid" id="og-s1q14">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q14',false,'上课','After school')">A. After school</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q14',true,'上课','Go to class')">B. Go to class</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q14',false,'上课','School is over')">C. School is over</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q14',false,'上课','Study at home')">D. Study at home</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q14','s1',false,'上课','After school')">A. After school</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q14','s1',true,'上课','Go to class')">B. Go to class</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q14','s1',false,'上课','School is over')">C. School is over</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q14','s1',false,'上课','Study at home')">D. Study at home</button>
   </div>
   <button class="btn" onclick="nextPage('s1q15')">Next →</button>
 </div>
@@ -407,21 +406,20 @@
   <h2>Character Recognition</h2>
   <p>What does <strong>一</strong> mean?</p>
   <div class="option-grid" id="og-s1q15">
-    <button class="option-btn" onclick="selectOption(this,'og-s1q15',false,'一','Two')">A. Two</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q15',true,'一','One')">B. One</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q15',false,'一','Three')">C. Three</button>
-    <button class="option-btn" onclick="selectOption(this,'og-s1q15',false,'一','Many')">D. Many</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q15','s1',false,'一','Two')">A. Two</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q15','s1',true,'一','One')">B. One</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q15','s1',false,'一','Three')">C. Three</button>
+    <button class="option-btn" onclick="selectOption(this,'og-s1q15','s1',false,'一','Many')">D. Many</button>
   </div>
   <button class="btn" onclick="nextPage('s2')">Next Section →</button>
 </div>
 
-<!-- SECTION 2: TONES 声调 -->
+<!-- SECTION 2: TONES -->
 <div class="card" id="page-s2">
   <div class="section-tag">Section 2 · 声调</div>
   <h2>Tone Recognition</h2>
   <p>Select the correct tone for each character. Tones: <strong>1st (ā)</strong> flat · <strong>2nd (á)</strong> rising · <strong>3rd (ǎ)</strong> dip · <strong>4th (à)</strong> falling</p>
 
-  <!-- Tone Q1: 你 nǐ = 3rd -->
   <div class="listen-item" style="margin-bottom:16px">
     <div class="listen-item-top">
       <span style="font-size:0.85rem;color:var(--muted)">Q1</span>
@@ -429,14 +427,13 @@
     </div>
     <div class="tone-big">你</div>
     <div class="tone-grid" id="tg-s2q1">
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q1',false,'你','1st Tone (nī)')">1st<span class="tone-label">nī (flat)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q1',false,'你','2nd Tone (ní)')">2nd<span class="tone-label">ní (rising)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q1',true,'你','3rd Tone (nǐ)')">3rd<span class="tone-label">nǐ (dip)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q1',false,'你','4th Tone (nì)')">4th<span class="tone-label">nì (falling)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q1',false,'你 (nǐ)','1st Tone (nī)')">1st<span class="tone-label">nī (flat)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q1',false,'你 (nǐ)','2nd Tone (ní)')">2nd<span class="tone-label">ní (rising)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q1',true,'你 (nǐ)','3rd Tone (nǐ)')">3rd<span class="tone-label">nǐ (dip)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q1',false,'你 (nǐ)','4th Tone (nì)')">4th<span class="tone-label">nì (falling)</span></button>
     </div>
   </div>
 
-  <!-- Tone Q2: 忙 máng = 2nd -->
   <div class="listen-item" style="margin-bottom:16px">
     <div class="listen-item-top">
       <span style="font-size:0.85rem;color:var(--muted)">Q2</span>
@@ -444,14 +441,13 @@
     </div>
     <div class="tone-big">忙</div>
     <div class="tone-grid" id="tg-s2q2">
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q2',false,'忙','1st Tone (māng)')">1st<span class="tone-label">māng (flat)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q2',true,'忙','2nd Tone (máng)')">2nd<span class="tone-label">máng (rising)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q2',false,'忙','3rd Tone (mǎng)')">3rd<span class="tone-label">mǎng (dip)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q2',false,'忙','4th Tone (màng)')">4th<span class="tone-label">màng (falling)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q2',false,'忙 (máng)','1st Tone (māng)')">1st<span class="tone-label">māng (flat)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q2',true,'忙 (máng)','2nd Tone (máng)')">2nd<span class="tone-label">máng (rising)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q2',false,'忙 (máng)','3rd Tone (mǎng)')">3rd<span class="tone-label">mǎng (dip)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q2',false,'忙 (máng)','4th Tone (màng)')">4th<span class="tone-label">màng (falling)</span></button>
     </div>
   </div>
 
-  <!-- Tone Q3: 多 duō = 1st -->
   <div class="listen-item" style="margin-bottom:16px">
     <div class="listen-item-top">
       <span style="font-size:0.85rem;color:var(--muted)">Q3</span>
@@ -459,14 +455,13 @@
     </div>
     <div class="tone-big">多</div>
     <div class="tone-grid" id="tg-s2q3">
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q3',true,'多','1st Tone (duō)')">1st<span class="tone-label">duō (flat)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q3',false,'多','2nd Tone (duó)')">2nd<span class="tone-label">duó (rising)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q3',false,'多','3rd Tone (duǒ)')">3rd<span class="tone-label">duǒ (dip)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q3',false,'多','4th Tone (duò)')">4th<span class="tone-label">duò (falling)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q3',true,'多 (duō)','1st Tone (duō)')">1st<span class="tone-label">duō (flat)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q3',false,'多 (duō)','2nd Tone (duó)')">2nd<span class="tone-label">duó (rising)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q3',false,'多 (duō)','3rd Tone (duǒ)')">3rd<span class="tone-label">duǒ (dip)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q3',false,'多 (duō)','4th Tone (duò)')">4th<span class="tone-label">duò (falling)</span></button>
     </div>
   </div>
 
-  <!-- Tone Q4: 人 rén = 2nd -->
   <div class="listen-item" style="margin-bottom:16px">
     <div class="listen-item-top">
       <span style="font-size:0.85rem;color:var(--muted)">Q4</span>
@@ -474,14 +469,13 @@
     </div>
     <div class="tone-big">人</div>
     <div class="tone-grid" id="tg-s2q4">
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q4',false,'人','1st Tone (rēn)')">1st<span class="tone-label">rēn (flat)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q4',true,'人','2nd Tone (rén)')">2nd<span class="tone-label">rén (rising)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q4',false,'人','3rd Tone (rěn)')">3rd<span class="tone-label">rěn (dip)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q4',false,'人','4th Tone (rèn)')">4th<span class="tone-label">rèn (falling)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q4',false,'人 (rén)','1st Tone (rēn)')">1st<span class="tone-label">rēn (flat)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q4',true,'人 (rén)','2nd Tone (rén)')">2nd<span class="tone-label">rén (rising)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q4',false,'人 (rén)','3rd Tone (rěn)')">3rd<span class="tone-label">rěn (dip)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q4',false,'人 (rén)','4th Tone (rèn)')">4th<span class="tone-label">rèn (falling)</span></button>
     </div>
   </div>
 
-  <!-- Tone Q5: 也 yě = 3rd -->
   <div class="listen-item" style="margin-bottom:16px">
     <div class="listen-item-top">
       <span style="font-size:0.85rem;color:var(--muted)">Q5</span>
@@ -489,14 +483,13 @@
     </div>
     <div class="tone-big">也</div>
     <div class="tone-grid" id="tg-s2q5">
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q5',false,'也','1st Tone (yē)')">1st<span class="tone-label">yē (flat)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q5',false,'也','2nd Tone (yé)')">2nd<span class="tone-label">yé (rising)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q5',true,'也','3rd Tone (yě)')">3rd<span class="tone-label">yě (dip)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q5',false,'也','4th Tone (yè)')">4th<span class="tone-label">yè (falling)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q5',false,'也 (yě)','1st Tone (yē)')">1st<span class="tone-label">yē (flat)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q5',false,'也 (yě)','2nd Tone (yé)')">2nd<span class="tone-label">yé (rising)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q5',true,'也 (yě)','3rd Tone (yě)')">3rd<span class="tone-label">yě (dip)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q5',false,'也 (yě)','4th Tone (yè)')">4th<span class="tone-label">yè (falling)</span></button>
     </div>
   </div>
 
-  <!-- Tone Q6: 见 jiàn = 4th -->
   <div class="listen-item" style="margin-bottom:16px">
     <div class="listen-item-top">
       <span style="font-size:0.85rem;color:var(--muted)">Q6</span>
@@ -504,14 +497,13 @@
     </div>
     <div class="tone-big">见</div>
     <div class="tone-grid" id="tg-s2q6">
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q6',false,'见','1st Tone (jiān)')">1st<span class="tone-label">jiān (flat)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q6',false,'见','2nd Tone (jiǎn)')">2nd<span class="tone-label">jiǎn (rising)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q6',false,'见','3rd Tone (jiǎn)')">3rd<span class="tone-label">jiǎn (dip)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q6',true,'见','4th Tone (jiàn)')">4th<span class="tone-label">jiàn (falling)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q6',false,'见 (jiàn)','1st Tone (jiān)')">1st<span class="tone-label">jiān (flat)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q6',false,'见 (jiàn)','2nd Tone (jiǎn)')">2nd<span class="tone-label">jiǎn (rising)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q6',false,'见 (jiàn)','3rd Tone (jiǎn)')">3rd<span class="tone-label">jiǎn (dip)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q6',true,'见 (jiàn)','4th Tone (jiàn)')">4th<span class="tone-label">jiàn (falling)</span></button>
     </div>
   </div>
 
-  <!-- Tone Q7: 很 hěn = 3rd -->
   <div class="listen-item" style="margin-bottom:16px">
     <div class="listen-item-top">
       <span style="font-size:0.85rem;color:var(--muted)">Q7</span>
@@ -519,14 +511,13 @@
     </div>
     <div class="tone-big">很</div>
     <div class="tone-grid" id="tg-s2q7">
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q7',false,'很','1st Tone (hēn)')">1st<span class="tone-label">hēn (flat)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q7',false,'很','2nd Tone (hén)')">2nd<span class="tone-label">hén (rising)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q7',true,'很','3rd Tone (hěn)')">3rd<span class="tone-label">hěn (dip)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q7',false,'很','4th Tone (hèn)')">4th<span class="tone-label">hèn (falling)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q7',false,'很 (hěn)','1st Tone (hēn)')">1st<span class="tone-label">hēn (flat)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q7',false,'很 (hěn)','2nd Tone (hén)')">2nd<span class="tone-label">hén (rising)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q7',true,'很 (hěn)','3rd Tone (hěn)')">3rd<span class="tone-label">hěn (dip)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q7',false,'很 (hěn)','4th Tone (hèn)')">4th<span class="tone-label">hèn (falling)</span></button>
     </div>
   </div>
 
-  <!-- Tone Q8: 去 qù = 4th -->
   <div class="listen-item" style="margin-bottom:16px">
     <div class="listen-item-top">
       <span style="font-size:0.85rem;color:var(--muted)">Q8</span>
@@ -534,10 +525,10 @@
     </div>
     <div class="tone-big">去</div>
     <div class="tone-grid" id="tg-s2q8">
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q8',false,'去','1st Tone (qū)')">1st<span class="tone-label">qū (flat)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q8',false,'去','2nd Tone (qú)')">2nd<span class="tone-label">qú (rising)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q8',false,'去','3rd Tone (qǔ)')">3rd<span class="tone-label">qǔ (dip)</span></button>
-      <button class="tone-btn" onclick="selectTone(this,'tg-s2q8',true,'去','4th Tone (qù)')">4th<span class="tone-label">qù (falling)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q8',false,'去 (qù)','1st Tone (qū)')">1st<span class="tone-label">qū (flat)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q8',false,'去 (qù)','2nd Tone (qú)')">2nd<span class="tone-label">qú (rising)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q8',false,'去 (qù)','3rd Tone (qǔ)')">3rd<span class="tone-label">qǔ (dip)</span></button>
+      <button class="tone-btn" onclick="selectTone(this,'tg-s2q8',true,'去 (qù)','4th Tone (qù)')">4th<span class="tone-label">qù (falling)</span></button>
     </div>
   </div>
 
@@ -557,10 +548,10 @@
     </div>
     <div class="listen-item-text" id="li1-text" style="display:none">你有好朋友吗？</div>
     <div class="option-grid" id="og-s3q1" style="margin-top:10px">
-      <button class="option-btn" onclick="selectOption(this,'og-s3q1',false,'你有好朋友吗？','Do you have a teacher?')">A. Do you have a teacher?</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q1',true,'你有好朋友吗？','Do you have good friends?')">B. Do you have good friends?</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q1',false,'你有好朋友吗？','Are you busy today?')">C. Are you busy today?</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q1',false,'你有好朋友吗？','Is school far from here?')">D. Is school far from here?</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q1','s3',false,'你有好朋友吗？','Do you have a teacher?')">A. Do you have a teacher?</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q1','s3',true,'你有好朋友吗？','Do you have good friends?')">B. Do you have good friends?</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q1','s3',false,'你有好朋友吗？','Are you busy today?')">C. Are you busy today?</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q1','s3',false,'你有好朋友吗？','Is school far from here?')">D. Is school far from here?</button>
     </div>
   </div>
 
@@ -571,10 +562,10 @@
     </div>
     <div class="listen-item-text" id="li2-text" style="display:none">我常问他问题</div>
     <div class="option-grid" id="og-s3q2" style="margin-top:10px">
-      <button class="option-btn" onclick="selectOption(this,'og-s3q2',false,'我常问他问题','I often ask her to leave.')">A. I often ask her to leave.</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q2',false,'我常问他问题','He asks me questions often.')">B. He asks me questions often.</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q2',true,'我常问他问题','I often ask him questions.')">C. I often ask him questions.</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q2',false,'我常问他问题','We ask questions together.')">D. We ask questions together.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q2','s3',false,'我常问他问题','I often ask her to leave.')">A. I often ask her to leave.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q2','s3',false,'我常问他问题','He asks me questions often.')">B. He asks me questions often.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q2','s3',true,'我常问他问题','I often ask him questions.')">C. I often ask him questions.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q2','s3',false,'我常问他问题','We ask questions together.')">D. We ask questions together.</button>
     </div>
   </div>
 
@@ -585,10 +576,10 @@
     </div>
     <div class="listen-item-text" id="li3-text" style="display:none">你去上课吗？</div>
     <div class="option-grid" id="og-s3q3" style="margin-top:10px">
-      <button class="option-btn" onclick="selectOption(this,'og-s3q3',false,'你去上课吗？','Are you going home?')">A. Are you going home?</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q3',true,'你去上课吗？','Are you going to class?')">B. Are you going to class?</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q3',false,'你去上课吗？','Do you like school?')">C. Do you like school?</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q3',false,'你去上课吗？','Is the teacher going?')">D. Is the teacher going?</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q3','s3',false,'你去上课吗？','Are you going home?')">A. Are you going home?</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q3','s3',true,'你去上课吗？','Are you going to class?')">B. Are you going to class?</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q3','s3',false,'你去上课吗？','Do you like school?')">C. Do you like school?</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q3','s3',false,'你去上课吗？','Is the teacher going?')">D. Is the teacher going?</button>
     </div>
   </div>
 
@@ -599,10 +590,10 @@
     </div>
     <div class="listen-item-text" id="li4-text" style="display:none">学校很大，人很多</div>
     <div class="option-grid" id="og-s3q4" style="margin-top:10px">
-      <button class="option-btn" onclick="selectOption(this,'og-s3q4',false,'学校很大，人很多','The school is small with many people.')">A. The school is small with many people.</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q4',true,'学校很大，人很多','The school is very big, there are many people.')">B. The school is very big, there are many people.</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q4',false,'学校很大，人很多','The teacher is big and has friends.')">C. The teacher is big and has friends.</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q4',false,'学校很大，人很多','I go to a big school far away.')">D. I go to a big school far away.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q4','s3',false,'学校很大，人很多','The school is small with many people.')">A. The school is small with many people.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q4','s3',true,'学校很大，人很多','The school is very big, there are many people.')">B. The school is very big, there are many people.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q4','s3',false,'学校很大，人很多','The teacher is big and has friends.')">C. The teacher is big and has friends.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q4','s3',false,'学校很大，人很多','I go to a big school far away.')">D. I go to a big school far away.</button>
     </div>
   </div>
 
@@ -613,17 +604,17 @@
     </div>
     <div class="listen-item-text" id="li5-text" style="display:none">明天见</div>
     <div class="option-grid" id="og-s3q5" style="margin-top:10px">
-      <button class="option-btn" onclick="selectOption(this,'og-s3q5',false,'明天见','Good morning!')">A. Good morning!</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q5',false,'明天见','See you later.')">B. See you later.</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q5',true,'明天见','See you tomorrow!')">C. See you tomorrow!</button>
-      <button class="option-btn" onclick="selectOption(this,'og-s3q5',false,'明天见','It\'s a nice day!')">D. It's a nice day!</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q5','s3',false,'明天见','Good morning!')">A. Good morning!</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q5','s3',false,'明天见','See you later.')">B. See you later.</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q5','s3',true,'明天见','See you tomorrow!')">C. See you tomorrow!</button>
+      <button class="option-btn" onclick="selectOption(this,'og-s3q5','s3',false,'明天见','It\'s a nice day!')">D. It's a nice day!</button>
     </div>
   </div>
 
   <button class="btn" onclick="nextPage('s4')" style="margin-top:16px">Next Section →</button>
 </div>
 
-<!-- SECTION 4: PRONUNCIATION WITH PINYIN -->
+<!-- SECTION 4: PRONUNCIATION -->
 <div class="card" id="page-s4">
   <div class="section-tag">Section 4</div>
   <h2>Pronunciation (Speaking)</h2>
@@ -799,7 +790,7 @@
 </div>
 
 <!-- RESULTS -->
-<div class="card" id="results">
+<div class="card" id="page-results">
   <div class="section-tag">Results</div>
   <h2>Exam Complete! 🎉</h2>
   <div class="score-circle" id="final-score">—</div>
@@ -807,11 +798,12 @@
 
   <div class="breakdown">
     <h3>Section Breakdown</h3>
-    <div class="breakdown-row"><span>Section 1 · Character Recognition</span><span id="br1">—</span></div>
-    <div class="breakdown-row"><span>Section 2 · Tone Recognition</span><span id="br2">—</span></div>
-    <div class="breakdown-row"><span>Section 3 · Listening</span><span id="br3">—</span></div>
-    <div class="breakdown-row"><span>Section 4 · Pronunciation</span><span id="br4">—</span></div>
-    <div class="breakdown-row"><span>Section 5 · Grammar</span><span id="br5">—</span></div>
+    <div class="breakdown-row"><span>Section 1 · Character Recognition (15 marks)</span><span id="br1">—</span></div>
+    <div class="breakdown-row"><span>Section 2 · Tone Recognition (8 marks)</span><span id="br2">—</span></div>
+    <div class="breakdown-row"><span>Section 3 · Listening (5 marks)</span><span id="br3">—</span></div>
+    <div class="breakdown-row"><span>Section 4 · Pronunciation (8 marks)</span><span id="br4">—</span></div>
+    <div class="breakdown-row"><span>Section 5 · Grammar (8 marks)</span><span id="br5">—</span></div>
+    <div class="breakdown-row total-row"><span>Total</span><span id="br-total">—</span></div>
   </div>
 
   <div class="breakdown" id="review-wrap" style="display:none">
@@ -828,12 +820,14 @@
 </div>
 
 <script>
-// ─── State ────────────────────────────────────────────────
-let mcqAnswers = [];   // {question, answer, correct}
-let toneAnswers = [];  // {question, answer, correct}
-let grammarScore = 0;
-let grammarTotal = 8;
+let s1Answers = {};
+let s3Answers = {};
+let toneAnswers = {};
+const grammarCorrect = {};
+const grammarTotal = 8;
 let pronunciationDone = 0;
+const pronunciationTotal = 8;
+const pronunciationRecorded = new Set();
 let timerInterval;
 let seconds = 3600;
 
@@ -891,35 +885,24 @@ function startTimer() {
   }, 1000);
 }
 
-// ─── Vocab Reveal ─────────────────────────────────────────
 function reveal(el) { el.classList.toggle('revealed'); }
 function revealAll() { document.querySelectorAll('.vocab-tile').forEach(t => t.classList.add('revealed')); }
 
-// ─── MCQ — record only, no immediate feedback ─────────────
-function selectOption(btn, gridId, isCorrect, question, answer) {
+function selectOption(btn, gridId, section, isCorrect, question, answer) {
   const grid = document.getElementById(gridId);
-  // allow changing answer until Next is pressed
   grid.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
-  // store / update answer
-  const existing = mcqAnswers.findIndex(a => a.question === question);
-  const entry = { question, answer, correct: isCorrect };
-  if (existing >= 0) mcqAnswers[existing] = entry;
-  else mcqAnswers.push(entry);
+  const store = section === 's1' ? s1Answers : s3Answers;
+  store[question] = { answer, correct: isCorrect };
 }
 
-// ─── Tone — record only, no immediate feedback ────────────
-function selectTone(btn, gridId, isCorrect, character, answer) {
+function selectTone(btn, gridId, isCorrect, question, answer) {
   const grid = document.getElementById(gridId);
   grid.querySelectorAll('.tone-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
-  const existing = toneAnswers.findIndex(a => a.question === character);
-  const entry = { question: character, answer, correct: isCorrect };
-  if (existing >= 0) toneAnswers[existing] = entry;
-  else toneAnswers.push(entry);
+  toneAnswers[question] = { answer, correct: isCorrect };
 }
 
-// ─── Audio ────────────────────────────────────────────────
 function playAudio(text, revealId) {
   if (revealId) document.getElementById(revealId).style.display = 'block';
   if ('speechSynthesis' in window) {
@@ -930,7 +913,6 @@ function playAudio(text, revealId) {
   }
 }
 
-// ─── Speech ───────────────────────────────────────────────
 function runSpeech(target, btn) {
   const msg = document.getElementById('speech-msg');
   if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
@@ -947,7 +929,10 @@ function runSpeech(target, btn) {
     const heard = e.results[0][0].transcript;
     msg.textContent = `Heard: "${heard}" — Good job! ✅`;
     btn.textContent = '✅ Done'; btn.style.background = 'var(--success)';
-    pronunciationDone++;
+    if (!pronunciationRecorded.has(target)) {
+      pronunciationRecorded.add(target);
+      pronunciationDone++;
+    }
   };
   r.onerror = () => {
     msg.textContent = '⚠️ Could not hear clearly. Try again.';
@@ -955,15 +940,12 @@ function runSpeech(target, btn) {
   };
 }
 
-// ─── Grammar ──────────────────────────────────────────────
 function moveChip(chip, dropId, bankId) {
   const drop = document.getElementById(dropId);
   const bank = document.getElementById(bankId);
   if (chip.parentElement.id === bankId) {
-    chip.onclick = () => moveChip(chip, dropId, bankId);
     drop.appendChild(chip);
   } else {
-    chip.onclick = () => moveChip(chip, dropId, bankId);
     bank.appendChild(chip);
   }
 }
@@ -976,62 +958,67 @@ function checkGrammar(itemId, answer, dropId, bankId) {
   if (built === answer) {
     fb.textContent = '✅ Correct!';
     fb.className = 'feedback ok';
-    grammarScore++;
+    grammarCorrect[itemId] = true;
   } else {
     fb.textContent = `✗ Try again. Correct: ${answer}`;
     fb.className = 'feedback err';
+    grammarCorrect[itemId] = false;
   }
 }
 
-// ─── Finish ───────────────────────────────────────────────
 function finishExam() {
   clearInterval(timerInterval);
 
-  const mcqCorrect = mcqAnswers.filter(a => a.correct).length;
-  const toneCorrect = toneAnswers.filter(a => a.correct).length;
-  const mcqTotal = 15;
+  const s1Total = 15;
+  const s1Correct = Object.values(s1Answers).filter(a => a.correct).length;
   const toneTotal = 8;
+  const toneCorrect = Object.values(toneAnswers).filter(a => a.correct).length;
   const listenTotal = 5;
-  const listenCorrect = mcqAnswers.filter(a =>
-    ['你有好朋友吗？','我常问他问题','你去上课吗？','学校很大，人很多','明天见'].includes(a.question)
-  ).filter(a => a.correct).length;
-  const s1Correct = mcqCorrect - listenCorrect;
+  const listenCorrect = Object.values(s3Answers).filter(a => a.correct).length;
+  const pronunCorrect = pronunciationDone;
+  const grammarScore = Object.values(grammarCorrect).filter(v => v === true).length;
 
-  const totalCorrect = mcqCorrect + toneCorrect + grammarScore;
-  const totalQ = mcqTotal + toneTotal + listenTotal + grammarTotal;
-  const overall = Math.round(totalCorrect / totalQ * 100);
+  const totalCorrect = s1Correct + toneCorrect + listenCorrect + pronunCorrect + grammarScore;
+  const totalMarks = s1Total + toneTotal + listenTotal + pronunciationTotal + grammarTotal;
+  const overall = Math.round(totalCorrect / totalMarks * 100);
 
-  // Score circle
   const el = document.getElementById('final-score');
   el.textContent = overall + '%';
   el.className = overall >= 75 ? 'score-circle' : overall >= 50 ? 'score-circle mid' : 'score-circle low';
 
-  const comments = { 90:'优秀 Excellent! Outstanding!', 75:'良好 Well done! Keep it up.', 50:'及格 Passing. Review weak areas.', 0:'加油! Keep practicing!' };
-  const grade = Object.keys(comments).reverse().find(k => overall >= k);
-  document.getElementById('grade-comment').textContent = comments[grade];
+  const comments = [
+    [90, '优秀 Excellent! Outstanding work!'],
+    [75, '良好 Well done! Keep it up.'],
+    [50, '及格 Passing. Review weak areas.'],
+    [0,  '加油! Keep practicing — you can do it!']
+  ];
+  const grade = comments.find(([threshold]) => overall >= threshold);
+  document.getElementById('grade-comment').textContent = grade[1];
 
-  // Breakdown
-  document.getElementById('br1').textContent = s1Correct + '/' + mcqTotal + ' correct';
-  document.getElementById('br2').textContent = toneCorrect + '/' + toneTotal + ' correct';
-  document.getElementById('br3').textContent = listenCorrect + '/' + listenTotal + ' correct';
-  document.getElementById('br4').textContent = pronunciationDone + '/8 recorded';
-  document.getElementById('br5').textContent = grammarScore + '/' + grammarTotal + ' correct';
+  document.getElementById('br1').textContent = `${s1Correct} / ${s1Total}`;
+  document.getElementById('br2').textContent = `${toneCorrect} / ${toneTotal}`;
+  document.getElementById('br3').textContent = `${listenCorrect} / ${listenTotal}`;
+  document.getElementById('br4').textContent = `${pronunCorrect} / ${pronunciationTotal}`;
+  document.getElementById('br5').textContent = `${grammarScore} / ${grammarTotal}`;
+  document.getElementById('br-total').textContent = `${totalCorrect} / ${totalMarks} (${overall}%)`;
 
-  // Answer review table
   const tbody = document.getElementById('review-body');
   tbody.innerHTML = '';
-  const allAnswers = [...mcqAnswers, ...toneAnswers];
+  const allAnswers = [
+    ...Object.entries(s1Answers).map(([q, v]) => ({ section: 'S1', question: q, ...v })),
+    ...Object.entries(toneAnswers).map(([q, v]) => ({ section: 'S2', question: q, ...v })),
+    ...Object.entries(s3Answers).map(([q, v]) => ({ section: 'S3', question: q, ...v })),
+  ];
   allAnswers.forEach(a => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${a.question}</td>
+      <td><span style="font-size:0.75rem;color:var(--muted)">[${a.section}]</span> ${a.question}</td>
       <td>${a.answer}</td>
       <td class="${a.correct ? 'tag-correct' : 'tag-wrong'}">${a.correct ? '✅' : '✗'}</td>
     `;
     tbody.appendChild(tr);
   });
   document.getElementById('review-wrap').style.display = allAnswers.length > 0 ? 'block' : 'none';
-
   nextPage('results');
 }
 </script>
