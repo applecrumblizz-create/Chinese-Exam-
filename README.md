@@ -1,4 +1,3 @@
-# Chinese-Exam-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,7 +91,7 @@
   .scramble-zone.drop-area { border-color: var(--primary); background: #f5f8ff; }
   .chip { background: var(--primary); color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-family: 'Noto Serif SC', serif; font-size: 1rem; transition: all 0.2s; user-select: none; }
   .chip:hover { background: var(--accent); transform: scale(1.05); }
-  #word-bank .chip, [id^="bank"] .chip { background: #e8e0d0; color: var(--text); }
+  [id^="bank"] .chip { background: #e8e0d0; color: var(--text); }
   [id^="bank"] .chip:hover { background: var(--accent); color: white; }
 
   .btn { display: inline-block; padding: 12px 26px; border: none; border-radius: 10px; cursor: pointer; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; font-weight: 600; transition: all 0.2s; background: var(--primary); color: white; margin-top: 8px; }
@@ -480,11 +479,24 @@ function startExam() {
   nextPage('s1');
 }
 
+// ── NEW: shuffle chips in a word bank ──
+function shuffleBank(bankId) {
+  const bank = document.getElementById(bankId);
+  const chips = Array.from(bank.querySelectorAll('.chip'));
+  chips.sort(() => Math.random() - 0.5);
+  chips.forEach(c => bank.appendChild(c));
+}
+
 function nextPage(id) {
   document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   updateProgress(id);
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // ── NEW: shuffle all word banks when Section 4 loads ──
+  if (id === 's4') {
+    ['bank1','bank2','bank3','bank4','bank5','bank6'].forEach(shuffleBank);
+  }
 }
 
 function startTimer() {
