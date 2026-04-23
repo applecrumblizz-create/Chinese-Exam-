@@ -673,7 +673,7 @@
   <p>Tap words in the bank to build the sentence shown. Tap placed words to return them.</p>
 
   <div class="grammar-item" id="gi1">
-    <div class="grammar-prompt">Arrange: <strong>"I am not busy?"</strong></div>
+    <div class="grammar-prompt">Arrange: <strong>"I am not busy."</strong></div>
     <div class="scramble-label">Your sentence:</div>
     <div class="scramble-zone drop-area" id="drop1"></div>
     <div class="scramble-label">Word bank:</div>
