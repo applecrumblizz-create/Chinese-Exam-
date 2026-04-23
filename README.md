@@ -104,9 +104,12 @@
   .meta-pill { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 10px 16px; font-size: 0.85rem; }
   .meta-pill span { font-weight: 700; color: var(--primary); display: block; font-size: 1.1rem; }
 
+  /* Pronunciation list with pinyin */
   .pronun-list { list-style: none; margin: 12px 0; }
-  .pronun-list li { background: white; border: 2px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; font-family: 'Noto Serif SC', serif; font-size: 1.2rem; color: var(--primary); }
-  .pronun-list li .btn { margin-top: 0; padding: 8px 16px; font-size: 0.85rem; }
+  .pronun-list li { background: white; border: 2px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+  .pronun-list li .btn { margin-top: 0; padding: 8px 16px; font-size: 0.85rem; flex-shrink: 0; }
+  .pronun-char { font-family: 'Noto Serif SC', serif; font-size: 1.2rem; color: var(--primary); }
+  .pronun-pinyin { font-size: 0.8rem; color: var(--muted); margin-top: 3px; font-style: italic; }
 
   .grammar-item { background: white; border: 2px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
   .grammar-prompt { font-size: 0.9rem; color: var(--muted); margin-bottom: 10px; }
@@ -174,6 +177,12 @@
     <div class="vocab-tile" onclick="reveal(this)">学校<div class="meaning">School</div></div>
     <div class="vocab-tile" onclick="reveal(this)">明天<div class="meaning">Tomorrow</div></div>
     <div class="vocab-tile" onclick="reveal(this)">早上<div class="meaning">Morning</div></div>
+    <div class="vocab-tile" onclick="reveal(this)">你好<div class="meaning">Hello</div></div>
+    <div class="vocab-tile" onclick="reveal(this)">你<div class="meaning">You</div></div>
+    <div class="vocab-tile" onclick="reveal(this)">多<div class="meaning">Many / Much</div></div>
+    <div class="vocab-tile" onclick="reveal(this)">谢谢<div class="meaning">Thank you</div></div>
+    <div class="vocab-tile" onclick="reveal(this)">上课<div class="meaning">Go to class</div></div>
+    <div class="vocab-tile" onclick="reveal(this)">一<div class="meaning">One</div></div>
   </div>
   <div class="btn-row">
     <button class="btn secondary" onclick="revealAll()">Reveal All</button>
@@ -234,6 +243,160 @@
     <button class="option-btn" onclick="mcq(this,false)">B. 去</button>
     <button class="option-btn" onclick="mcq(this,true)">C. 大</button>
     <button class="option-btn" onclick="mcq(this,false)">D. 忙</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q5')">Next →</button>
+</div>
+
+<!-- S1 Q5 -->
+<div class="card" id="page-s1q5">
+  <div class="section-tag">Section 1 · Q5</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>你好</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. Goodbye</button>
+    <button class="option-btn" onclick="mcq(this,true)">B. Hello</button>
+    <button class="option-btn" onclick="mcq(this,false)">C. Thank you</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. Good morning</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q6')">Next →</button>
+</div>
+
+<!-- S1 Q6 -->
+<div class="card" id="page-s1q6">
+  <div class="section-tag">Section 1 · Q6</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>学校</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. Classroom</button>
+    <button class="option-btn" onclick="mcq(this,false)">B. Teacher</button>
+    <button class="option-btn" onclick="mcq(this,true)">C. School</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. Library</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q7')">Next →</button>
+</div>
+
+<!-- S1 Q7 -->
+<div class="card" id="page-s1q7">
+  <div class="section-tag">Section 1 · Q7</div>
+  <h2>Character Recognition</h2>
+  <p>Which character means <strong>"You"</strong>?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. 我</button>
+    <button class="option-btn" onclick="mcq(this,true)">B. 你</button>
+    <button class="option-btn" onclick="mcq(this,false)">C. 他</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. 她</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q8')">Next →</button>
+</div>
+
+<!-- S1 Q8 -->
+<div class="card" id="page-s1q8">
+  <div class="section-tag">Section 1 · Q8</div>
+  <h2>Character Recognition</h2>
+  <p>Which character means <strong>"I / Me"</strong>?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,true)">A. 我</button>
+    <button class="option-btn" onclick="mcq(this,false)">B. 你</button>
+    <button class="option-btn" onclick="mcq(this,false)">C. 大</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. 问</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q9')">Next →</button>
+</div>
+
+<!-- S1 Q9 -->
+<div class="card" id="page-s1q9">
+  <div class="section-tag">Section 1 · Q9</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>早上</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. Afternoon</button>
+    <button class="option-btn" onclick="mcq(this,true)">B. Morning</button>
+    <button class="option-btn" onclick="mcq(this,false)">C. Evening</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. Night</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q10')">Next →</button>
+</div>
+
+<!-- S1 Q10 -->
+<div class="card" id="page-s1q10">
+  <div class="section-tag">Section 1 · Q10</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>多</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. Few / Little</button>
+    <button class="option-btn" onclick="mcq(this,true)">B. Many / Much</button>
+    <button class="option-btn" onclick="mcq(this,false)">C. Big</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. Small</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q11')">Next →</button>
+</div>
+
+<!-- S1 Q11 -->
+<div class="card" id="page-s1q11">
+  <div class="section-tag">Section 1 · Q11</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>谢谢</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. Sorry</button>
+    <button class="option-btn" onclick="mcq(this,false)">B. Goodbye</button>
+    <button class="option-btn" onclick="mcq(this,true)">C. Thank you</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. Hello</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q12')">Next →</button>
+</div>
+
+<!-- S1 Q12 -->
+<div class="card" id="page-s1q12">
+  <div class="section-tag">Section 1 · Q12</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>再见</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. Hello</button>
+    <button class="option-btn" onclick="mcq(this,true)">B. Goodbye</button>
+    <button class="option-btn" onclick="mcq(this,false)">C. See you tomorrow</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. Good morning</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q13')">Next →</button>
+</div>
+
+<!-- S1 Q13 -->
+<div class="card" id="page-s1q13">
+  <div class="section-tag">Section 1 · Q13</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>去</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. To come</button>
+    <button class="option-btn" onclick="mcq(this,false)">B. To ask</button>
+    <button class="option-btn" onclick="mcq(this,true)">C. To go</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. To see</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q14')">Next →</button>
+</div>
+
+<!-- S1 Q14 -->
+<div class="card" id="page-s1q14">
+  <div class="section-tag">Section 1 · Q14</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>上课</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. After school</button>
+    <button class="option-btn" onclick="mcq(this,true)">B. Go to class</button>
+    <button class="option-btn" onclick="mcq(this,false)">C. School is over</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. Study at home</button>
+  </div>
+  <button class="btn" onclick="nextPage('s1q15')">Next →</button>
+</div>
+
+<!-- S1 Q15 -->
+<div class="card" id="page-s1q15">
+  <div class="section-tag">Section 1 · Q15</div>
+  <h2>Character Recognition</h2>
+  <p>What does <strong>一</strong> mean?</p>
+  <div class="option-grid">
+    <button class="option-btn" onclick="mcq(this,false)">A. Two</button>
+    <button class="option-btn" onclick="mcq(this,true)">B. One</button>
+    <button class="option-btn" onclick="mcq(this,false)">C. Three</button>
+    <button class="option-btn" onclick="mcq(this,false)">D. Many</button>
   </div>
   <button class="btn" onclick="nextPage('s2')">Next Section →</button>
 </div>
@@ -317,20 +480,44 @@
   <button class="btn" onclick="nextPage('s3')" style="margin-top:16px">Next Section →</button>
 </div>
 
-<!-- SECTION 3: PRONUNCIATION -->
+<!-- SECTION 3: PRONUNCIATION WITH PINYIN -->
 <div class="card" id="page-s3">
   <div class="section-tag">Section 3</div>
   <h2>Pronunciation (Speaking)</h2>
   <p>Read each phrase aloud. Press <strong>🎤 Record</strong> and speak clearly into your microphone.</p>
   <ul class="pronun-list">
-    <li>谢谢 <button class="btn" onclick="runSpeech('谢谢',this)">🎤 Record</button></li>
-    <li>不客气 <button class="btn" onclick="runSpeech('不客气',this)">🎤 Record</button></li>
-    <li>再见 <button class="btn" onclick="runSpeech('再见',this)">🎤 Record</button></li>
-    <li>对不起 <button class="btn" onclick="runSpeech('对不起',this)">🎤 Record</button></li>
-    <li>没关系 <button class="btn" onclick="runSpeech('没关系',this)">🎤 Record</button></li>
-    <li>你好 <button class="btn" onclick="runSpeech('你好',this)">🎤 Record</button></li>
-    <li>我不忙 <button class="btn" onclick="runSpeech('我不忙',this)">🎤 Record</button></li>
-    <li>你有好朋友吗？ <button class="btn" onclick="runSpeech('你有好朋友吗',this)">🎤 Record</button></li>
+    <li>
+      <div><div class="pronun-char">谢谢</div><div class="pronun-pinyin">xièxiè</div></div>
+      <button class="btn" onclick="runSpeech('谢谢',this)">🎤 Record</button>
+    </li>
+    <li>
+      <div><div class="pronun-char">不客气</div><div class="pronun-pinyin">bù kèqi</div></div>
+      <button class="btn" onclick="runSpeech('不客气',this)">🎤 Record</button>
+    </li>
+    <li>
+      <div><div class="pronun-char">再见</div><div class="pronun-pinyin">zàijiàn</div></div>
+      <button class="btn" onclick="runSpeech('再见',this)">🎤 Record</button>
+    </li>
+    <li>
+      <div><div class="pronun-char">对不起</div><div class="pronun-pinyin">duìbuqǐ</div></div>
+      <button class="btn" onclick="runSpeech('对不起',this)">🎤 Record</button>
+    </li>
+    <li>
+      <div><div class="pronun-char">没关系</div><div class="pronun-pinyin">méi guānxi</div></div>
+      <button class="btn" onclick="runSpeech('没关系',this)">🎤 Record</button>
+    </li>
+    <li>
+      <div><div class="pronun-char">你好</div><div class="pronun-pinyin">nǐ hǎo</div></div>
+      <button class="btn" onclick="runSpeech('你好',this)">🎤 Record</button>
+    </li>
+    <li>
+      <div><div class="pronun-char">我不忙</div><div class="pronun-pinyin">wǒ bù máng</div></div>
+      <button class="btn" onclick="runSpeech('我不忙',this)">🎤 Record</button>
+    </li>
+    <li>
+      <div><div class="pronun-char">你有好朋友吗？</div><div class="pronun-pinyin">nǐ yǒu hǎo péngyǒu ma?</div></div>
+      <button class="btn" onclick="runSpeech('你有好朋友吗',this)">🎤 Record</button>
+    </li>
   </ul>
   <p id="speech-msg"></p>
   <button class="btn" onclick="nextPage('s4')">Next Section →</button>
@@ -428,6 +615,36 @@
     <div class="feedback" id="gi6-fb" style="display:none"></div>
   </div>
 
+  <div class="grammar-item" id="gi7">
+    <div class="grammar-prompt">Arrange: <strong>"Are you busy?"</strong></div>
+    <div class="scramble-label">Your sentence:</div>
+    <div class="scramble-zone drop-area" id="drop7"></div>
+    <div class="scramble-label">Word bank:</div>
+    <div class="scramble-zone" id="bank7">
+      <div class="chip" onclick="moveChip(this,'drop7','bank7')">你</div>
+      <div class="chip" onclick="moveChip(this,'drop7','bank7')">忙</div>
+      <div class="chip" onclick="moveChip(this,'drop7','bank7')">吗</div>
+      <div class="chip" onclick="moveChip(this,'drop7','bank7')">？</div>
+    </div>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi7','你忙吗？','drop7','bank7')">✓ Check</button>
+    <div class="feedback" id="gi7-fb" style="display:none"></div>
+  </div>
+
+  <div class="grammar-item" id="gi8">
+    <div class="grammar-prompt">Arrange: <strong>"I have one good friend."</strong></div>
+    <div class="scramble-label">Your sentence:</div>
+    <div class="scramble-zone drop-area" id="drop8"></div>
+    <div class="scramble-label">Word bank:</div>
+    <div class="scramble-zone" id="bank8">
+      <div class="chip" onclick="moveChip(this,'drop8','bank8')">我</div>
+      <div class="chip" onclick="moveChip(this,'drop8','bank8')">有</div>
+      <div class="chip" onclick="moveChip(this,'drop8','bank8')">一个</div>
+      <div class="chip" onclick="moveChip(this,'drop8','bank8')">好朋友</div>
+    </div>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi8','我有一个好朋友','drop8','bank8')">✓ Check</button>
+    <div class="feedback" id="gi8-fb" style="display:none"></div>
+  </div>
+
   <button class="btn" onclick="finishExam()" style="margin-top:8px">Finish Exam →</button>
 </div>
 
@@ -453,12 +670,17 @@
 let score = 0;
 let totalMCQ = 0;
 let grammarScore = 0;
-let grammarTotal = 6;
+let grammarTotal = 8;
 let pronunciationDone = 0;
 let timerInterval;
 let seconds = 3600;
 
-const PAGE_ORDER = ['start','s1','s1q1','s1q2','s1q3','s1q4','s2','s3','s4','results'];
+const PAGE_ORDER = [
+  'start','s1',
+  's1q1','s1q2','s1q3','s1q4','s1q5','s1q6','s1q7',
+  's1q8','s1q9','s1q10','s1q11','s1q12','s1q13','s1q14','s1q15',
+  's2','s3','s4','results'
+];
 const PAGE_COUNT = PAGE_ORDER.length;
 
 function getPageIndex(id) { return PAGE_ORDER.indexOf(id); }
@@ -479,9 +701,9 @@ function startExam() {
   nextPage('s1');
 }
 
-// ── NEW: shuffle chips in a word bank ──
 function shuffleBank(bankId) {
   const bank = document.getElementById(bankId);
+  if (!bank) return;
   const chips = Array.from(bank.querySelectorAll('.chip'));
   chips.sort(() => Math.random() - 0.5);
   chips.forEach(c => bank.appendChild(c));
@@ -493,9 +715,8 @@ function nextPage(id) {
   updateProgress(id);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // ── NEW: shuffle all word banks when Section 4 loads ──
   if (id === 's4') {
-    ['bank1','bank2','bank3','bank4','bank5','bank6'].forEach(shuffleBank);
+    ['bank1','bank2','bank3','bank4','bank5','bank6','bank7','bank8'].forEach(shuffleBank);
   }
 }
 
