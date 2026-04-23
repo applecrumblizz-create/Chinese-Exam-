@@ -673,16 +673,17 @@
   <p>Tap words in the bank to build the sentence shown. Tap placed words to return them.</p>
 
   <div class="grammar-item" id="gi1">
-    <div class="grammar-prompt">Arrange: <strong>"Are you busy?"</strong></div>
+    <div class="grammar-prompt">Arrange: <strong>"I am not busy?"</strong></div>
     <div class="scramble-label">Your sentence:</div>
     <div class="scramble-zone drop-area" id="drop1"></div>
     <div class="scramble-label">Word bank:</div>
     <div class="scramble-zone" id="bank1">
-      <div class="chip" onclick="moveChip(this,'drop1','bank1')">你</div>
+      <div class="chip" onclick="moveChip(this,'drop1','bank1')">我</div>
+      <div class="chip" onclick="moveChip(this,'drop1','bank1')">不</div>
       <div class="chip" onclick="moveChip(this,'drop1','bank1')">忙</div>
-      <div class="chip" onclick="moveChip(this,'drop1','bank1')">吗</div>
+      <div class="chip" onclick="moveChip(this,'drop1','bank1')">。</div>
     </div>
-    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi1','你忙吗','drop1','bank1')">✓ Check</button>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi1','我不忙。','drop1','bank1')">✓ Check</button>
     <div class="feedback" id="gi1-fb" style="display:none"></div>
   </div>
 
@@ -695,8 +696,9 @@
       <div class="chip" onclick="moveChip(this,'drop2','bank2')">再见</div>
       <div class="chip" onclick="moveChip(this,'drop2','bank2')">，</div>
       <div class="chip" onclick="moveChip(this,'drop2','bank2')">明天见</div>
+      <div class="chip" onclick="moveChip(this,'drop2','bank2')">。</div>
     </div>
-    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi2','再见，明天见','drop2','bank2')">✓ Check</button>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi2','再见，明天见。','drop2','bank2')">✓ Check</button>
     <div class="feedback" id="gi2-fb" style="display:none"></div>
   </div>
 
@@ -710,8 +712,9 @@
       <div class="chip" onclick="moveChip(this,'drop3','bank3')">有</div>
       <div class="chip" onclick="moveChip(this,'drop3','bank3')">一个</div>
       <div class="chip" onclick="moveChip(this,'drop3','bank3')">好朋友</div>
+      <div class="chip" onclick="moveChip(this,'drop2','bank2')">。</div>
     </div>
-    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi3','我有一个好朋友','drop3','bank3')">✓ Check</button>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi3','我有一个好朋友。','drop3','bank3')">✓ Check</button>
     <div class="feedback" id="gi3-fb" style="display:none"></div>
   </div>
 
@@ -725,8 +728,9 @@
       <div class="chip" onclick="moveChip(this,'drop4','bank4')">常</div>
       <div class="chip" onclick="moveChip(this,'drop4','bank4')">问他</div>
       <div class="chip" onclick="moveChip(this,'drop4','bank4')">问题</div>
+      <div class="chip" onclick="moveChip(this,'drop2','bank2')">。</div>
     </div>
-    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi4','我常问他问题','drop4','bank4')">✓ Check</button>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi4','我常问他问题。','drop4','bank4')">✓ Check</button>
     <div class="feedback" id="gi4-fb" style="display:none"></div>
   </div>
 
@@ -739,8 +743,9 @@
       <div class="chip" onclick="moveChip(this,'drop5','bank5')">老师</div>
       <div class="chip" onclick="moveChip(this,'drop5','bank5')">很</div>
       <div class="chip" onclick="moveChip(this,'drop5','bank5')">好</div>
+      <div class="chip" onclick="moveChip(this,'drop2','bank2')">。</div>
     </div>
-    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi5','老师很好','drop5','bank5')">✓ Check</button>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi5','老师很好。','drop5','bank5')">✓ Check</button>
     <div class="feedback" id="gi5-fb" style="display:none"></div>
   </div>
 
@@ -753,8 +758,9 @@
       <div class="chip" onclick="moveChip(this,'drop6','bank6')">我们</div>
       <div class="chip" onclick="moveChip(this,'drop6','bank6')">常</div>
       <div class="chip" onclick="moveChip(this,'drop6','bank6')">打电话</div>
+      <div class="chip" onclick="moveChip(this,'drop2','bank2')">。</div>
     </div>
-    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi6','我们常打电话','drop6','bank6')">✓ Check</button>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi6','我们常打电话。','drop6','bank6')">✓ Check</button>
     <div class="feedback" id="gi6-fb" style="display:none"></div>
   </div>
 
@@ -774,17 +780,18 @@
   </div>
 
   <div class="grammar-item" id="gi8">
-    <div class="grammar-prompt">Arrange: <strong>"I have one good friend."</strong></div>
+    <div class="grammar-prompt">Arrange: <strong>"Is the school big?"</strong></div>
     <div class="scramble-label">Your sentence:</div>
     <div class="scramble-zone drop-area" id="drop8"></div>
     <div class="scramble-label">Word bank:</div>
     <div class="scramble-zone" id="bank8">
-      <div class="chip" onclick="moveChip(this,'drop8','bank8')">我</div>
-      <div class="chip" onclick="moveChip(this,'drop8','bank8')">有</div>
-      <div class="chip" onclick="moveChip(this,'drop8','bank8')">一个</div>
-      <div class="chip" onclick="moveChip(this,'drop8','bank8')">好朋友</div>
+      <div class="chip" onclick="moveChip(this,'drop8','bank8')">学校</div>
+      <div class="chip" onclick="moveChip(this,'drop8','bank8')">大</div>
+      <div class="chip" onclick="moveChip(this,'drop8','bank8')">不</div>
+      <div class="chip" onclick="moveChip(this,'drop8','bank8')">大</div>
+      <div class="chip" onclick="moveChip(this,'drop2','bank2')">？</div>
     </div>
-    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi8','我有一个好朋友','drop8','bank8')">✓ Check</button>
+    <button class="btn secondary" style="padding:8px 18px;font-size:0.85rem" onclick="checkGrammar('gi8','学校大不大？','drop8','bank8')">✓ Check</button>
     <div class="feedback" id="gi8-fb" style="display:none"></div>
   </div>
 
