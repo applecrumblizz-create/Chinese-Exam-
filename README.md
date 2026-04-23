@@ -756,7 +756,7 @@
   </div>
 
   <div class="grammar-item" id="gi7">
-    <div class="grammar-prompt">Arrange: <strong>"Are you busy?" (with question mark)</strong></div>
+    <div class="grammar-prompt">Arrange: <strong>"Are you busy?"</strong></div>
     <div class="scramble-label">Your sentence:</div>
     <div class="scramble-zone drop-area" id="drop7"></div>
     <div class="scramble-label">Word bank:</div>
